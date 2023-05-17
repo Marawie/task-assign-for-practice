@@ -1,3 +1,5 @@
+package TaskAssignForPractice;
+
 //Person
 //zawiera podstawowe dane o osobie
 public class Person {

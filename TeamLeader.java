@@ -1,4 +1,4 @@
-//TEAM LEADER
+package TaskAssignForPractice;//TEAM LEADER
 //Team leader ma miec pole Developer ktore przechowywac bedzie developera ktory jest jego
 //podopiecznym w projekcie.
 //Ma miec mozliwosc przydzielenia zadania do developera jak rowniez zabrania zadania
@@ -103,7 +103,7 @@ public class TeamLeader extends Developer {
 
     private void viewDevelopers() {
         System.out.println("Developers in the team:");
-        if (getProgrammerList() != null) {
+        if (!getProgrammerList().isEmpty()) {
             for (int i = 0; i < getProgrammerList().size(); i++) {
                 System.out.println(getProgrammerList().get(i));
             }

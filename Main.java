@@ -1,3 +1,5 @@
+package TaskAssignForPractice;
+
 public class Main {
     public static void main(String[] args) {
         TeamLeader teamLeader = new TeamLeader();

@@ -1,4 +1,4 @@
-// Task ma opis, informacje czy jest na front czy na backend, wycene godzinowa, osobe
+package TaskAssignForPractice;// Task ma opis, informacje czy jest na front czy na backend, wycene godzinowa, osobe
 //odpowiedzialna za jego wykonanie, osobe odpowiedzialna za jego sprawdzenie,
 //ma status (W TOKU, OCZEKUJACY, WYKONANY)
 

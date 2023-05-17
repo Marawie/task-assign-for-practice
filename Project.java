@@ -1,4 +1,4 @@
-//Project
+package TaskAssignForPractice;//Project
 //zawiera opis, developera teamleadera , liste technologii uzywanych w projekcie (moze byc
 //po prostu jako string). Date startu (Doczytaj o localdate albo uzyj stringa), date
 //przewidywanego zakonczenia, tytul projektu, oraz klienta
