@@ -8,15 +8,12 @@
 //Team leader moze przydzielic zadanie tylko swojemu podopiecznemu (np. pracujacemu
 //tylko na froncie lub tylko na backendzie)
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class TeamLeader extends Developer {
     Scanner scanner;
     Developer developer;
-    List<Developer> programmerList;
+    List<Developer> programmerList = new ArrayList<>();
 
     public List<Developer> getProgrammerList() {
         return programmerList;
@@ -43,6 +40,8 @@ public class TeamLeader extends Developer {
 
     public void manageTeam() {
         Project project = new Project();
+        Project newProject = new Project();
+        System.out.println(project.equals(newProject));
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -88,10 +87,10 @@ public class TeamLeader extends Developer {
                     addNewDeveloper();
                     break;
                 case 6:
-                    project.createProject();
+                    newProject = project.createProject();
                     break;
                 case 7:
-                    project.displayProjectInfo();
+                    newProject.displayProjectInfo();
                 case 8:
                     exit = true;
                     break;
@@ -103,9 +102,10 @@ public class TeamLeader extends Developer {
 
     private void viewDevelopers() {
         System.out.println("Developers in the team:");
-        if (getProgrammerList() != null) {
-            for (int i = 0; i < getProgrammerList().size(); i++) {
-                System.out.println(getProgrammerList().get(i));
+        List<Developer> programmers = getProgrammerList();
+        if (!programmers.isEmpty()) {
+            for (int i = 0; i < programmers.size(); i++) {
+                System.out.println(programmers.get(i));
             }
         } else {
             System.out.println("No programmers in the team.");
@@ -155,9 +155,53 @@ public class TeamLeader extends Developer {
                     tasks.remove(task);
                     System.out.println("Task revoked from " + developer.getLastName());
                 }
-
-
             }
+        }
+    }
+
+    /* methods that can add dev like interview or sth like that
+    -do poprawy trzeba zrobic tak zeby na samym koncu było wiadomo ilu mamy developerów w teamie // obsluga wyjatkow
+    -ale to zrobie potem
+    -kazdy dev jest osoba wiec trzeba tez to zrobic
+    -moglem w sumie zrobic to za pomoca operatora || w if i polaczyc to, jak bede mial czas to poprawie
+    -nie wiem dlaczego nie dodaja sie obiekty do listy chociaz zwracam liste i mam metode toString[edit: usunąłem toString()]
+     teraz widze ze po usunieciu ja widze ze obiekt jest dodany wiec moze problem z tym? nie wiem dlaczego*/
+    public void addNewDeveloper() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Do you want to join our team? Y/N");
+        String choice = scanner.next();
+
+        while (!choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N")) {
+            System.out.println("Invalid choice. Please enter 'Y' or 'N'.");
+            choice = scanner.next();
+        }
+
+        if (choice.equalsIgnoreCase("Y")) {
+            System.out.println("Are you a Backend or Frontend developer?");
+            String whoTheProgrammerIs = scanner.next();
+
+            while (!whoTheProgrammerIs.equalsIgnoreCase("Backend") && !whoTheProgrammerIs.equalsIgnoreCase("Frontend")) {
+                System.out.println("Invalid choice. Please enter 'Backend' or 'Frontend'.");
+                whoTheProgrammerIs = scanner.next();
+            }
+
+            System.out.println("What is your seniority level? Junior/Mid/Senior");
+            String seniority = scanner.next().toUpperCase();
+
+            while (!seniority.equals("JUNIOR") && !seniority.equals("MID") && !seniority.equals("SENIOR")) {
+                System.out.println("Invalid choice. Please enter 'Junior', 'Mid', or 'Senior'.");
+                seniority = scanner.next().toUpperCase();
+            }
+
+            Developer newDev = new Developer(whoTheProgrammerIs, seniority);
+            System.out.println(newDev);
+
+            getProgrammerList().add(newDev);
+            System.out.println("Welcome to our team, " + newDev.person.getFirstName().toUpperCase() + "!");
+
+        } else if (choice.equalsIgnoreCase("N")) {
+            System.out.println(":( You chose not to join our team.");
         }
     }
 }

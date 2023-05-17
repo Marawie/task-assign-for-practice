@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Project {
-    Project project;
     private String description;
     private TeamLeader teamLeader;
 
@@ -111,16 +110,17 @@ public class Project {
         return new Project(description, teamLeader, technologies, startDate, endDate, projectName, clientName);
     }
 
+
     public void displayProjectInfo() {
         try {
             System.out.println("Project Information:");
 
-            System.out.println("Title: " + this.project.getProjectName());
-            System.out.println("Description: " + this.project.getDescription());
-            System.out.println("Customer: " + this.project.getCustomer());
-            System.out.println("Start Date: " + this.project.getStartProject());
-            System.out.println("End Date: " + this.project.getEndProject());
-            System.out.println("Technologies: " + this.project.getTechnologies());
+            System.out.println("Title: " + projectName);
+            System.out.println("Description: " + description);
+            System.out.println("Customer: " + customer);
+            System.out.println("Start Date: " + startProject);
+            System.out.println("End Date: " + endProject);
+            System.out.println("Technologies: " + technologies);
             System.out.println("Team Leader: " + getTeamLeader().getFirstName() + " " + getTeamLeader().getLastName());
         } catch (NullPointerException e) {
             System.out.println("We don't have any project right now!");
