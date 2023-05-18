@@ -26,11 +26,7 @@ public class Developer extends Person {
     Scanner scanner = new Scanner(System.in);
 
 
-    private List<Developer> OurProgrammer = new ArrayList<>();
 
-    public List<Developer> getOurProgrammer() {
-        return OurProgrammer;
-    }
 
     public String getWhoProgrammerYouAre() {
         return whoProgrammerYouAre;
@@ -74,7 +70,7 @@ public class Developer extends Person {
 
     @Override
     public String toString() {
-        return "Your main tech and seniority lvl: " + whoProgrammerYouAre + " " + seniority + " " + person + getOurProgrammer();
+        return "Your main tech and seniority lvl: " + whoProgrammerYouAre + " " + seniority + " " + person;
     }
 
 
@@ -85,44 +81,7 @@ public class Developer extends Person {
     -moglem w sumie zrobic to za pomoca operatora || w if i polaczyc to, jak bede mial czas to poprawie
     -nie wiem dlaczego nie dodaja sie obiekty do listy chociaz zwracam liste i mam metode toString[edit: usunąłem toString()]
      teraz widze ze po usunieciu ja widze ze obiekt jest dodany wiec moze problem z tym? nie wiem dlaczego*/
-    public void addNewDeveloper() {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Do you want to join our team? Y/N");
-        String choice = scanner.next();
-
-        while (!choice.equalsIgnoreCase("Y") && !choice.equalsIgnoreCase("N")) {
-            System.out.println("Invalid choice. Please enter 'Y' or 'N'.");
-            choice = scanner.next();
-        }
-
-        if (choice.equalsIgnoreCase("Y")) {
-            System.out.println("Are you a Backend or Frontend developer?");
-            String whoTheProgrammerIs = scanner.next();
-
-            while (!whoTheProgrammerIs.equalsIgnoreCase("Backend") && !whoTheProgrammerIs.equalsIgnoreCase("Frontend")) {
-                System.out.println("Invalid choice. Please enter 'Backend' or 'Frontend'.");
-                whoTheProgrammerIs = scanner.next();
-            }
-
-            System.out.println("What is your seniority level? Junior/Mid/Senior");
-            String seniority = scanner.next().toUpperCase();
-
-            while (!seniority.equals("JUNIOR") && !seniority.equals("MID") && !seniority.equals("SENIOR")) {
-                System.out.println("Invalid choice. Please enter 'Junior', 'Mid', or 'Senior'.");
-                seniority = scanner.next().toUpperCase();
-            }
-
-            Developer newDev = new Developer(whoTheProgrammerIs, seniority);
-            System.out.println(newDev);
-
-            getOurProgrammer().add(newDev);
-            System.out.println("Welcome to our team, " + newDev.person.getFirstName().toUpperCase() + "!");
-
-        } else if (choice.equalsIgnoreCase("N")) {
-            System.out.println(":( You chose not to join our team.");
-        }
-    }
 }
 
 
